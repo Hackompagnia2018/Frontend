@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {SelectItem} from 'primeng/api';
 
@@ -15,22 +15,18 @@ export class UsersSearchComponent implements OnInit {
   provinces: SelectItem[];
   cities: SelectItem[];
   filteredProds: any[];
+  @Output() displaySearch = new EventEmitter();
   prod: string;
-  displaySearch = false;
   constructor(private fb: FormBuilder) {
     this.regions = [
       {label: 'Marche', value: 'Marche'}
     ];
     this.provinces = [
-      // {label: 'Ancona', value: 'Ancona'},
       {label: 'Macerata', value: 'Macerata'}
-      // {label: 'Ascoli', value: 'Ascoli'},
-      // {label: 'Pesaro e Urbino', value: 'Pesaro e Urbino'},
-      // {label: 'Fermo', value: 'Fermo'},
     ];
     this.cities = [
-      {label: 'Montecassiano', value: 'Offagna'},
-      {label: 'Morrovalle', value: 'Offagna'},
+      {label: 'Montecassiano', value: 'Montecassiano'},
+      {label: 'Morrovalle', value: 'Morrovalle'},
       {label: 'Loreto', value: 'Loreto'}
     ];
     this.form = this.fb.group({
@@ -52,11 +48,11 @@ export class UsersSearchComponent implements OnInit {
       }
     }
   }
-  search() {
-    this.displaySearch = true;
-  }
   reset() {
     this.form.reset();
   }
-
+  search(search) {
+    this.displaySearch.emit(search);
+    this.form.reset();
+  }
 }

@@ -13,7 +13,9 @@ import {UsersService} from '../../../services/users/users.service';
 export class UsersHomeComponent implements OnInit {
   displaySidebarToggle = true;
   profilePics;
+  searchSide = false;
   name: string;
+  search;
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
 
@@ -39,5 +41,10 @@ export class UsersHomeComponent implements OnInit {
   }
   getName(): string {
     return this.authService.tokenDecode()['name'];
+  }
+  test(search) {
+    this.search = search;
+    this.searchSide = true;
+    console.log(search);
   }
 }

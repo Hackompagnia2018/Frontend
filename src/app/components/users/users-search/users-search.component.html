@@ -24,7 +24,7 @@
       <p-dropdown [options]="cities" formControlName="City" placeholder="Cities"></p-dropdown>
     </div>
     <div align="right" class="search-button-div">
-      <button pButton icon="fa fa-check" label="Search" style="margin-right: 5px" [disabled]="form.invalid" (click)="search()"></button>
+      <button pButton icon="fa fa-check" label="Search" style="margin-right: 5px" [disabled]="form.invalid" (click)="search(form.value)"></button>
       <button pButton icon="fa fa-times" label="Reset" (click)="reset()" class="ui-button-secondary"></button>
     </div>
   </form>
