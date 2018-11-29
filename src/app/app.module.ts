@@ -5,7 +5,8 @@ import { RootComponent } from './components/_plus/root/root.component';
 import { PublicHomeComponent } from './components/public/public-home/public-home.component';
 import { AppRoutingModule } from './modules/routing/app-routing.module';
 import {MaterialModule} from './modules/material/material.module';
-import {PrimengModule} from './modules/primeng/primeng.module';
+import {PrimeNgModule} from './modules/primeng/primeng.module';
+import {AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,10 @@ import {PrimengModule} from './modules/primeng/primeng.module';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    PrimengModule,
+    PrimeNgModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [RootComponent]
 })
 export class AppModule { }
