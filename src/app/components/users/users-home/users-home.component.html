@@ -1,6 +1,3 @@
-<!--<p-sidebar [visible]="displaySidebar" [modal]="false" (onHide)="displaySidebar=false" [showCloseIcon]="false" [style]="{'background' : '#f4f4f4', 'border-radius':'0 5px 5px 0'}">
-
-</p-sidebar>-->
 <mat-drawer-container class="container">
 
   <mat-drawer #drawer class="sidenav" mode="side">
@@ -30,7 +27,7 @@
       <span class="ui-float-label">
         <p-autoComplete id='search' [(ngModel)]="prod" [suggestions]="filteredProds" (completeMethod)="filterProds($event)"
                         [dropdown]="true" [style]="{'width':'80%'}" [inputStyle]="{'width':'80%'}" class="p-autocomplete">
-                        
+
           <ng-template let-prod pTemplate="item">
             <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
               <img src="assets/images/pic02.jpg" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
@@ -38,7 +35,7 @@
             </div>
           </ng-template>
         </p-autoComplete>
-        <label for="search">Ricerca Prodotto</label>  
+        <label for="search">Ricerca Prodotto</label>
       </span>
     </p-card>
   </div>
