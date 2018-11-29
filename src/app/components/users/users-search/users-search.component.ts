@@ -31,9 +31,7 @@ export class UsersSearchComponent implements OnInit {
     ];
     this.form = this.fb.group({
       Product: new FormControl({value: null, disabled: false}, [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z ]+$')]),
-      Region: new FormControl({value: null, disabled: false}, [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z ]+$')]),
-      Province: new FormControl({value: null, disabled: false}, [Validators.required]),
-      City: new FormControl({value: null, disabled: false}, [Validators.required])
+      selectedCity: new FormControl({value: null, disabled: false}, [Validators.required])
     });
   }
 

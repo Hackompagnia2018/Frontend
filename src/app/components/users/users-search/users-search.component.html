@@ -15,13 +15,11 @@
         </span>
     </div>
     <div align="left" class="search-input-div">
-      <p-dropdown [options]="regions" formControlName="Region" placeholder="Regions"></p-dropdown>
-    </div>
-    <div align="left" class="search-input-div">
-      <p-dropdown [options]="provinces" formControlName="Province" placeholder="Provinces"></p-dropdown>
-    </div>
-    <div align="left" class="search-input-div">
-      <p-dropdown [options]="cities" formControlName="City" placeholder="Cities"></p-dropdown>
+      <p-dropdown [options]="groupedCity" [style]="{'width':'150px'}" placeholder="Select a City" [group]="true" formControlName="selectedCity" style="margin-bottom: 10px">
+        <ng-template let-group pTemplate="group">
+          <span style="margin-left:.25em">{{group.label}}</span>
+        </ng-template>
+      </p-dropdown>
     </div>
     <div align="right" class="search-button-div">
       <button pButton icon="fa fa-check" label="Search" style="margin-right: 5px" [disabled]="form.invalid" (click)="search(form.value)"></button>
