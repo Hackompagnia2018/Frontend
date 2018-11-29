@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {MessageService, SelectItemGroup} from 'primeng/api';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import {formArrayNameProvider} from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 @Component({
   selector: 'app-user-new-sale',
@@ -15,6 +14,7 @@ export class UserNewSaleComponent implements OnInit {
   groupedCity: SelectItemGroup[];
 
   form: FormGroup;
+  uploadedFiles: any[] = [];
 
   constructor(private fb: FormBuilder, private messageService: MessageService) {
     this.form = this.fb.group({
@@ -256,6 +256,14 @@ export class UserNewSaleComponent implements OnInit {
   // Metodo per resettare i dati
   resetSale() {
     this.form.reset();
+  }
+  // Add Image
+  onUpload(event) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+
+    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
 
 }

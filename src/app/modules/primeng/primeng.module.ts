@@ -4,7 +4,7 @@ import {
   AutoCompleteModule,
   ButtonModule,
   CardModule, DropdownModule,
-  FieldsetModule,
+  FieldsetModule, FileUploadModule,
   InputTextModule,
   MegaMenuModule,
   MessageModule,
@@ -37,7 +37,8 @@ import {DialogModule} from 'primeng/dialog';
     AutoCompleteModule,
     FieldsetModule,
     MegaMenuModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule
   ],
   exports: [
     ButtonModule,
@@ -56,7 +57,8 @@ import {DialogModule} from 'primeng/dialog';
     AutoCompleteModule,
     FieldsetModule,
     MegaMenuModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule
   ],
   declarations: []
 })
