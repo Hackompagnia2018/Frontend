@@ -1,16 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { RootComponent } from './components/_plus/root/root.component';
+import { PublicHomeComponent } from './components/public/public-home/public-home.component';
+import { AppRoutingModule } from './modules/routing/app-routing.module';
+import {MaterialModule} from './modules/material/material.module';
+import {PrimengModule} from './modules/primeng/primeng.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    RootComponent,
+    PublicHomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    MaterialModule,
+    PrimengModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [RootComponent]
 })
 export class AppModule { }
