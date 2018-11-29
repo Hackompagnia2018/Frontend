@@ -1,0 +1,45 @@
+body {
+  background-color: #fafafa !important;
+}
+
+.profile-icon {
+  border-radius: 20px 20px 20px 20px;
+  cursor: pointer;
+}
+
+.profile-icon-sidebar {
+  border-radius: 50px 50px 50px 50px;
+}
+
+#drawer-profile {
+  position: relative;
+  top: 5%;
+}
+
+.sidenav {
+  min-width: 250px;
+}
+
+#profile-button {
+  border-radius: 20px 20px 20px 20px;
+}
+
+#search-autocomplete {
+  padding-left: 10px;
+}
+
+.ui-card {
+  margin : 20px 20px 20px 20px;
+  height: 250px;
+}
+
+.ui-autocomplete {
+}
+
+.p-autocomplete {
+  width: 80%;
+  top: 20%;
+  position: relative;
+  text-align: center;
+}
+

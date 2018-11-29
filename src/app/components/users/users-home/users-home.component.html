@@ -1,0 +1,107 @@
+<!--<p-sidebar [visible]="displaySidebar" [modal]="false" (onHide)="displaySidebar=false" [showCloseIcon]="false" [style]="{'background' : '#f4f4f4', 'border-radius':'0 5px 5px 0'}">
+
+</p-sidebar>-->
+<mat-drawer-container class="container">
+
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <div id="drawer-profile" align="center">
+      <img class="profile-icon-sidebar" [src]="profilePics" height="90px">
+      <h4>{{name}}</h4>
+    </div>
+  </mat-drawer>
+
+  <div id="search-autocomplete">
+    <p-toolbar >
+
+      <div class="ui-toolbar-group-left">
+        <img *ngIf="displaySidebarToggle" class="profile-icon" [src]="profilePics"
+            (click)="drawer.toggle(); displaySidebarToggle = false" height="30px">
+        <button id="profile-button" *ngIf="!displaySidebarToggle" pButton icon="fa fa-times" class="ui-button-secondary"
+                (click)="drawer.toggle(); displaySidebarToggle = true"></button>
+      </div>
+
+      <div class="ui-toolbar-group-right">
+        <button pButton type="button" label="Logout" class="ui-button-rounded ui-button-danger" icon="pi pi-power-off" (click)="logout()"></button>
+      </div>
+
+    </p-toolbar>
+
+    <p-card styleClass="ui-card-shadow" class="user-card" >
+      <span class="ui-float-label">
+        <p-autoComplete id='search' [(ngModel)]="prod" [suggestions]="filteredProds" (completeMethod)="filterProds($event)"
+                        [dropdown]="true" [style]="{'width':'80%'}" [inputStyle]="{'width':'80%'}" class="p-autocomplete">
+                        
+          <ng-template let-prod pTemplate="item">
+            <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+              <img src="assets/images/pic02.jpg" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
+              <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{prod}}</div>
+            </div>
+          </ng-template>
+        </p-autoComplete>
+        <label for="search">Ricerca Prodotto</label>  
+      </span>
+    </p-card>
+  </div>
+
+  <!--Tabelle di vendita/acquisti e grafici relativi-->
+  <div class="ui-g">
+    <div class="ui-g-6">
+        <p-card>
+          <p-header>
+            <h5>
+              Tabella Vendite
+            </h5>
+          </p-header>
+          Body Content
+          <p-footer>
+            Footer content here
+          </p-footer>
+        </p-card>
+    </div>
+    <div class="ui-g-6">
+      <p-card>
+        <p-header>
+          <h5>
+            Grafico Vendite
+          </h5>
+        </p-header>
+        Body Content
+        <p-footer>
+          Footer content here
+        </p-footer>
+      </p-card>
+    </div>
+  <div class="ui-g-6">
+    <p-card>
+      <p-header>
+        <h5>
+          Tabella Acquisti
+        </h5>
+      </p-header>
+      Body Content
+      <p-footer>
+        Footer content here
+      </p-footer>
+    </p-card>
+  </div>
+  <div class="ui-g-6">
+    <p-card>
+    <p-header>
+      <h5>
+        Grafico Acquisti
+      </h5>
+    </p-header>
+    Body Content
+    <p-footer>
+      Footer content here
+    </p-footer>
+  </p-card>
+  </div>
+</div>
+
+</mat-drawer-container>
+
+<!-- Overlay Components -->
+<p-toast [style]="{marginTop: '30px'}"></p-toast>
+<p-confirmDialog></p-confirmDialog>
+<!---->

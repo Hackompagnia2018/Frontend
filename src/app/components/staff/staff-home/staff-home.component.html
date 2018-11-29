@@ -1,0 +1,12 @@
+<p-toolbar>
+  <div class="ui-toolbar-group-left">
+    <p-splitButton label="Staff" icon="pi pi-circle-on"  [model]="" styleClass="ui-button-info"></p-splitButton>
+  </div>
+
+  <div class="ui-toolbar-group-right">
+    <p-confirmDialog></p-confirmDialog>
+    <p-splitButton label="logout" icon="pi pi-power-off"  [model]="buttonLogout" styleClass="ui-button-danger" (onClick)="logout()"></p-splitButton>
+
+  </div>
+
+</p-toolbar>

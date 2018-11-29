@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
 import * as jwt_decode from 'jwt-decode';
-import {Auth} from '../classes/auth';
+import {Auth} from '../../classes/auth';
 
 (window as any).global = window;
 

@@ -1,26 +1,66 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { RootComponent } from './components/_plus/root/root.component';
-import { PublicHomeComponent } from './components/public/public-home/public-home.component';
-import { AppRoutingModule } from './modules/routing/app-routing.module';
-import {MaterialModule} from './modules/material/material.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PrimeNgModule} from './modules/primeng/primeng.module';
-import {AuthService} from './services/auth.service';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './modules/routing/app-routing.module';
+import { PublicHomeComponent } from './components/public/public-home/public-home.component';
+import { UsersHomeComponent } from './components/users/users-home/users-home.component';
+import { RootComponent } from './components/_plus/root/root.component';
+import {AuthService} from './services/auth/auth.service';
+import { CallbackComponent } from './components/_plus/callback/callback.component';
+import { UsersNoVerifyComponent } from './components/users/users-no-verify/users-no-verify.component';
+import {AuthGuardService} from './services/auth/auth-guard.service';
+import { StaffHomeComponent } from './components/staff/staff-home/staff-home.component';
+import { AccessDeniedComponent } from './components/_plus/access-denied/access-denied.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import {RoleGuardAdminService} from './services/auth/role-guard-admin.service';
+import {RoleGuardStaffService} from './services/auth/role-guard-staff.service';
+import {ConfirmationService} from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/primeng';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {Interceptor} from './classes/interceptor';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SendMailComponent } from './components/_plus/send-mail/send-mail.component';
+import {MessageService} from 'primeng/api';
+import {UsersService} from './services/users/users.service';
+import {MaterialModule} from './modules/material/material.module';
 
 @NgModule({
   declarations: [
+    PublicHomeComponent,
+    UsersHomeComponent,
     RootComponent,
-    PublicHomeComponent
+    CallbackComponent,
+    UsersNoVerifyComponent,
+    StaffHomeComponent,
+    AccessDeniedComponent,
+    AdminHomeComponent,
+    SendMailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MaterialModule,
+    BrowserAnimationsModule,
     PrimeNgModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ConfirmDialogModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,
+    UsersService,
+    AuthGuardService,
+    RoleGuardAdminService,
+    RoleGuardStaffService,
+    ConfirmationService,
+    MessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true
+    }
+  ],
   bootstrap: [RootComponent]
 })
 export class AppModule { }
