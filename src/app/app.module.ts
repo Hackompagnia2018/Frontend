@@ -24,6 +24,7 @@ import { SendMailComponent } from './components/_plus/send-mail/send-mail.compon
 import {MessageService} from 'primeng/api';
 import {UsersService} from './services/users/users.service';
 import {MaterialModule} from './modules/material/material.module';
+import { UsersSearchComponent } from './components/users/users-search/users-search.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MaterialModule} from './modules/material/material.module';
     StaffHomeComponent,
     AccessDeniedComponent,
     AdminHomeComponent,
-    SendMailComponent
+    SendMailComponent,
+    UsersSearchComponent
   ],
   imports: [
     BrowserModule,
