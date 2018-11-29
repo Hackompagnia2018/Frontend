@@ -10,11 +10,11 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 export class UserNewSaleComponent implements OnInit {
   @Input() display; // Visualizza il display di profilo utente
   @Output() close = new EventEmitter();
-
   groupedCity: SelectItemGroup[];
-
   form: FormGroup;
   uploadedFiles: any[] = [];
+  city = null;
+  province = null;
 
   constructor(private fb: FormBuilder, private messageService: MessageService) {
     this.form = this.fb.group({
@@ -30,210 +30,210 @@ export class UserNewSaleComponent implements OnInit {
         {
           label: 'Abruzzo', value: '',
           items: [
-            {label: 'Chieti', value: 'Chieti'},
-            {label: 'LAquila', value: 'LAquila'},
-            {label: 'Pescara', value: 'Pescara'},
-            {label: 'Teramo', value: 'Teramo'}
+            {label: 'Chieti', value: 'Abbruzzo.Chieti'},
+            {label: 'LAquila', value: 'Abbruzzo.LAquila'},
+            {label: 'Pescara', value: 'Abbruzzo.Pescara'},
+            {label: 'Teramo', value: 'Abbruzzo.Teramo'}
           ]
         },
         {
           label: 'Basilicata', value: '',
           items: [
-            {label: 'Matera', value: 'Matera'},
-            {label: 'Potenza', value: 'Potenza'}
+            {label: 'Matera', value: 'BasilicataMatera'},
+            {label: 'Potenza', value: 'BasilicataPotenza'}
           ]
         },
         {
           label: 'Calabria', value: '',
           items: [
-            {label: 'Reggio Calabria', value: 'Reggio Calabria'},
-            {label: 'Catanzaro', value: 'Catanzaro'},
-            {label: 'Cosenza', value: 'Cosenza'},
-            {label: 'Crotone', value: 'Crotone'},
-            {label: 'Vibo Valentia', value: 'Vibo Valentia'}
+            {label: 'Reggio Calabria', value: 'Calabria.Reggio Calabria'},
+            {label: 'Catanzaro', value: 'Calabria.Catanzaro'},
+            {label: 'Cosenza', value: 'Calabria.Cosenza'},
+            {label: 'Crotone', value: 'Calabria.Crotone'},
+            {label: 'Vibo Valentia', value: 'Calabria.Vibo Valentia'}
           ]
         },
         {
           label: 'Campania', value: '',
           items: [
-            {label: 'Avellino', value: 'Avellino'},
-            {label: 'Benevento', value: 'Benevento'},
-            {label: 'Caserta', value: 'Caserta'},
-            {label: 'Napoli', value: 'Napoli'},
-            {label: 'Salerno', value: 'Salerno'}
+            {label: 'Avellino', value: 'Campania.Avellino'},
+            {label: 'Benevento', value: 'Campania.Benevento'},
+            {label: 'Caserta', value: 'Campania.Caserta'},
+            {label: 'Napoli', value: 'Campania.Napoli'},
+            {label: 'Salerno', value: 'Campania.Salerno'}
           ]
         },
         {
           label: 'Emilia Romagna', value: '',
           items: [
-            {label: 'Bologna', value: 'Bologna'},
-            {label: 'Ferrara', value: 'Ferrara'},
-            {label: 'Forlì', value: 'Forlì'},
-            {label: 'Modena', value: 'Modena'},
-            {label: 'Parma', value: 'Parma'},
-            {label: 'Piacenza', value: 'Piacenza'},
-            {label: 'Ravenna', value: 'Ravenna'},
-            {label: 'Reggio Emilia', value: 'Reggio Emilia'},
-            {label: 'Rimini', value: 'Rimini'}
+            {label: 'Bologna', value: 'Emilia Romagna.Bologna'},
+            {label: 'Ferrara', value: 'Emilia Romagna.Ferrara'},
+            {label: 'Forlì', value: 'Emilia Romagna.Forlì'},
+            {label: 'Modena', value: 'Emilia Romagna.Modena'},
+            {label: 'Parma', value: 'Emilia Romagna.Parma'},
+            {label: 'Piacenza', value: 'Emilia Romagna.Piacenza'},
+            {label: 'Ravenna', value: 'Emilia Romagna.Ravenna'},
+            {label: 'Reggio Emilia', value: 'Emilia Romagna.Reggio Emilia'},
+            {label: 'Rimini', value: 'Emilia Romagna.Rimini'}
           ]
         },
         {
           label: 'Friuli-Venezia Giulia', value: '',
           items: [
-            {label: 'Gorizia', value: 'Gorizia'},
-            {label: 'Pordenone', value: 'Pordenone'},
-            {label: 'Trieste', value: 'Trieste'},
-            {label: 'Udine', value: 'Udine'}
+            {label: 'Gorizia', value: 'Friuli-Venezia Giulia.Gorizia'},
+            {label: 'Pordenone', value: 'Friuli-Venezia Giulia.Pordenone'},
+            {label: 'Trieste', value: 'Friuli-Venezia Giulia.Trieste'},
+            {label: 'Udine', value: 'Friuli-Venezia Giulia.Udine'}
           ]
         },
         {
           label: 'Lazio', value: '',
           items: [
-            {label: 'Frosinone', value: 'Frosinone'},
-            {label: 'Latina', value: 'Latina'},
-            {label: 'Rieti', value: 'Rieti'},
-            {label: 'Roma', value: 'Roma'},
-            {label: 'Viterbo', value: 'Viterbo'}
+            {label: 'Frosinone', value: 'Lazio.Frosinone'},
+            {label: 'Latina', value: 'Lazio.Latina'},
+            {label: 'Rieti', value: 'Lazio.Rieti'},
+            {label: 'Roma', value: 'Lazio.Roma'},
+            {label: 'Viterbo', value: 'Lazio.Viterbo'}
           ]
         },
         {
           label: 'Liguria', value: '',
           items: [
-            {label: 'Genova', value: 'Genova'},
-            {label: 'Imperia', value: 'La Spezia'},
-            {label: 'Savona', value: 'Savona'}
+            {label: 'Genova', value: 'Liguria.Genova'},
+            {label: 'Imperia', value: 'Liguria.La Spezia'},
+            {label: 'Savona', value: 'Liguria.Savona'}
           ]
         },
         {
           label: 'Lombardia', value: '',
           items: [
-            {label: 'Bergamo', value: 'Bergamo'},
-            {label: 'Brescia', value: 'Brescia'},
-            {label: 'Como', value: 'Como'},
-            {label: 'Cremona', value: 'Cremona'},
-            {label: 'Lecco', value: 'Lecco'},
-            {label: 'Lodi', value: 'Lodi'},
-            {label: 'Mantova', value: 'Mantova'},
-            {label: 'Milano', value: 'Milano'},
-            {label: 'Pavia', value: 'Pavia'},
-            {label: 'Sondrio', value: 'Sondrio'},
-            {label: 'Varese', value: 'Varese'}
+            {label: 'Bergamo', value: 'Lombardia.Bergamo'},
+            {label: 'Brescia', value: 'Lombardia.Brescia'},
+            {label: 'Como', value: 'Lombardia.Como'},
+            {label: 'Cremona', value: 'Lombardia.Cremona'},
+            {label: 'Lecco', value: 'Lombardia.Lecco'},
+            {label: 'Lodi', value: 'Lombardia.Lodi'},
+            {label: 'Mantova', value: 'Lombardia.Mantova'},
+            {label: 'Milano', value: 'Lombardia.Milano'},
+            {label: 'Pavia', value: 'Lombardia.Pavia'},
+            {label: 'Sondrio', value: 'Lombardia.Sondrio'},
+            {label: 'Varese', value: 'Lombardia.Varese'}
           ]
         },
         {
           label: 'Marche', value: '',
           items: [
-            {label: 'Ancona', value: 'Ancona'},
-            {label: 'Ascoli Piceno', value: 'Ascoli Piceno'},
-            {label: 'Fermo', value: 'Fermo'},
-            {label: 'Macerata', value: 'Macerata'},
-            {label: 'Pesaro-Urbino', value: 'Pesaro-Urbino'}
+            {label: 'Ancona', value: 'Marche.Ancona'},
+            {label: 'Ascoli Piceno', value: 'Marche.Ascoli Piceno'},
+            {label: 'Fermo', value: 'Marche.Fermo'},
+            {label: 'Macerata', value: 'Marche.Macerata'},
+            {label: 'Pesaro-Urbino', value: 'Marche.Pesaro-Urbino'}
           ]
         },
         {
           label: 'Molise', value: '',
           items: [
-            {label: 'Campobasso', value: 'Campobasso'},
-            {label: 'Isernia', value: 'Isernia'}
+            {label: 'Campobasso', value: 'Molise.Campobasso'},
+            {label: 'Isernia', value: 'Molise.Isernia'}
           ]
         },
         {
           label: 'Piemonte', value: '',
           items: [
-            {label: 'Alessandria', value: 'Alessandria'},
-            {label: 'Asti', value: 'Asti'},
-            {label: 'Biella', value: 'Biella'},
-            {label: 'Cuneo', value: 'Cuneo'},
-            {label: 'Novara', value: 'Novara'},
-            {label: 'Turin', value: 'Turin'},
-            {label: 'Verbano-Cosio-Ossola', value: 'Verbano-Cosio-Ossola'},
-            {label: 'Vercelli', value: 'Vercelli'}
+            {label: 'Alessandria', value: 'Piemonte.Alessandria'},
+            {label: 'Asti', value: 'Piemonte.Asti'},
+            {label: 'Biella', value: 'Piemonte.Biella'},
+            {label: 'Cuneo', value: 'Piemonte.Cuneo'},
+            {label: 'Novara', value: 'Piemonte.Novara'},
+            {label: 'Turin', value: 'Piemonte.Turin'},
+            {label: 'Verbano-Cosio-Ossola', value: 'Piemonte.Verbano-Cosio-Ossola'},
+            {label: 'Vercelli', value: 'Piemonte.Vercelli'}
           ]
         },
         {
           label: 'Puglia', value: '',
           items: [
-            {label: 'Bari', value: 'Bari'},
-            {label: 'Barletta-Andria-Trani', value: 'Barletta-Andria-Trani'},
-            {label: 'Brindisi', value: 'Brindisi'},
-            {label: 'Foggia', value: 'Foggia'},
-            {label: 'Lecce', value: 'Lecce'},
-            {label: 'Taranto', value: 'Taranto'}
+            {label: 'Bari', value: 'Puglia.Bari'},
+            {label: 'Barletta-Andria-Trani', value: 'Puglia.Barletta-Andria-Trani'},
+            {label: 'Brindisi', value: 'Puglia.Brindisi'},
+            {label: 'Foggia', value: 'Puglia.Foggia'},
+            {label: 'Lecce', value: 'Puglia.Lecce'},
+            {label: 'Taranto', value: 'Puglia.Taranto'}
           ]
         },
         {
           label: 'Sardegna', value: '',
           items: [
-            {label: 'Cagliari', value: 'Cagliari'},
-            {label: 'Carbonia Iglesias', value: 'Carbonia Iglesias'},
-            {label: 'Medio Campidano', value: 'Medio Campidano'},
-            {label: 'Nuoro', value: 'Nuoro'},
-            {label: 'Ogliastra', value: 'Ogliastra'},
-            {label: 'Olbia', value: 'Olbia'},
-            {label: 'Tempio', value: 'Tempio'},
-            {label: 'Oristano', value: 'Oristano'},
-            {label: 'Sassari', value: 'Sassari'}
+            {label: 'Cagliari', value: 'Sardegna.Cagliari'},
+            {label: 'Carbonia Iglesias', value: 'Sardegna.Carbonia Iglesias'},
+            {label: 'Medio Campidano', value: 'Sardegna.Medio Campidano'},
+            {label: 'Nuoro', value: 'Sardegna.Nuoro'},
+            {label: 'Ogliastra', value: 'Sardegna.Ogliastra'},
+            {label: 'Olbia', value: 'Sardegna.Olbia'},
+            {label: 'Tempio', value: 'Sardegna.Tempio'},
+            {label: 'Oristano', value: 'Sardegna.Oristano'},
+            {label: 'Sassari', value: 'Sardegna.Sassari'}
           ]
         },
         {
           label: 'Sicilia', value: '',
           items: [
-            {label: 'Agrigento', value: 'Agrigento'},
-            {label: 'Caltanissetta', value: 'Caltanissetta'},
-            {label: 'Catania', value: 'Catania'},
-            {label: 'Enna', value: 'Enna'},
-            {label: 'Messina', value: 'Messina'},
-            {label: 'Palermo', value: 'Palermo'},
-            {label: 'Ragusa', value: 'Ragusa'},
-            {label: 'Siracusa', value: 'Siracusa'},
-            {label: 'Trapani', value: 'Trapani'}
+            {label: 'Agrigento', value: 'Sicilia.Agrigento'},
+            {label: 'Caltanissetta', value: 'Sicilia.Caltanissetta'},
+            {label: 'Catania', value: 'Sicilia.Catania'},
+            {label: 'Enna', value: 'Sicilia.Enna'},
+            {label: 'Messina', value: 'Sicilia.Messina'},
+            {label: 'Palermo', value: 'Sicilia.Palermo'},
+            {label: 'Ragusa', value: 'Sicilia.Ragusa'},
+            {label: 'Siracusa', value: 'Sicilia.Siracusa'},
+            {label: 'Trapani', value: 'Sicilia.Trapani'}
           ]
         },
         {
           label: 'Toscana', value: '',
           items: [
-            {label: 'Arezzo', value: 'Arezzo'},
-            {label: 'Firenze', value: 'Firenze'},
-            {label: 'Grosseto', value: 'Grosseto'},
-            {label: 'Livorno', value: 'Livorno'},
-            {label: 'Lucca', value: 'Lucca'},
-            {label: 'Massa-Carrara', value: 'Massa-Carrara'},
-            {label: 'Pisa', value: 'Pisa'},
-            {label: 'Pistoia', value: 'Pistoia'},
-            {label: 'Prato', value: 'Prato'},
-            {label: 'Siena', value: 'Siena'}
+            {label: 'Arezzo', value: 'Toscana.Arezzo'},
+            {label: 'Firenze', value: 'Toscana.Firenze'},
+            {label: 'Grosseto', value: 'Toscana.Grosseto'},
+            {label: 'Livorno', value: 'Toscana.Livorno'},
+            {label: 'Lucca', value: 'Toscana.Lucca'},
+            {label: 'Massa-Carrara', value: 'Toscana.Massa-Carrara'},
+            {label: 'Pisa', value: 'Toscana.Pisa'},
+            {label: 'Pistoia', value: 'Toscana.Pistoia'},
+            {label: 'Prato', value: 'Toscana.Prato'},
+            {label: 'Siena', value: 'Toscana.Siena'}
           ]
         },
         {
           label: 'Trentino-Alto Adige', value: '',
           items: [
-            {label: 'Bolzano', value: 'Bolzano'},
-            {label: 'Trento', value: 'Trento'}
+            {label: 'Bolzano', value: 'Trentino-Alto Adige.Bolzano'},
+            {label: 'Trento', value: 'Trentino-Alto Adige.Trento'}
           ]
         },
         {
           label: 'Umbria', value: '',
           items: [
-            {label: 'Perugia', value: 'Perugia'},
-            {label: 'Terni', value: 'Terni'}
+            {label: 'Perugia', value: 'Umbria.Perugia'},
+            {label: 'Terni', value: 'Umbria.Terni'}
           ]
         },
         {
           label: 'Valle DAosta', value: '',
           items: [
-            {label: 'Aosta', value: 'Aosta'}
+            {label: 'Aosta', value: 'Valle DAosta.Aosta'}
           ]
         },
         {
           label: 'Veneto', value: '',
           items: [
-            {label: 'Belluno', value: 'Belluno'},
-            {label: 'Padova', value: 'Padova'},
-            {label: 'Rovigo', value: 'Rovigo'},
-            {label: 'Treviso', value: 'Treviso'},
-            {label: 'Venezia', value: 'Venezia'},
-            {label: 'Verona', value: 'Verona'},
-            {label: 'Vicenza', value: 'Vicenza'}
+            {label: 'Belluno', value: 'Veneto.Belluno'},
+            {label: 'Padova', value: 'Veneto.Padova'},
+            {label: 'Rovigo', value: 'Veneto.Rovigo'},
+            {label: 'Treviso', value: 'Veneto.Treviso'},
+            {label: 'Venezia', value: 'Veneto.Venezia'},
+            {label: 'Verona', value: 'Veneto.Verona'},
+            {label: 'Vicenza', value: 'Veneto.Vicenza'}
           ]
         }
       ];
@@ -248,6 +248,11 @@ export class UserNewSaleComponent implements OnInit {
   // Metodo per salvare i dati
   saveSale() {
     console.log(this.form.value);
+    let provAndCity = this.form.value['selectedCity'].split(".");
+    this.province = provAndCity[0];
+    this.city = provAndCity[1];
+    console.log(this.province);
+    console.log(this.city);
     this.messageService.add({severity: 'success', summary: 'Successfully', detail: 'Add Sale Successful'});
     this.form.reset();
     this.close.emit();
