@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ConfirmationService, MessageService} from 'primeng/api';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {ConfirmationService, MenuItem, MessageService} from 'primeng/api';
 import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {UsersService} from '../../../services/users/users.service';
@@ -17,10 +17,12 @@ export class UsersHomeComponent implements OnInit {
   prods: string[] = ['Olio Esausto', 'Liquame', 'Liquiletame', 'Stallatico', 'Scarto Organico Generico', 'Altro'];
   filteredProds: any[];
   prod: string;
+  displayNewSale = false;
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
 
   ngOnInit() {
+    this.displayNewSale = false;
     this.profilePics = this.authService.tokenDecode()['picture'];
     if (!this.authService.tokenDecode()['email_verified']) {
       this.router.navigate(['UserNoVerify']);
