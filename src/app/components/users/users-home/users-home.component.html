@@ -29,8 +29,8 @@
     <p-card styleClass="ui-card-shadow" class="user-card" >
       <span class="ui-float-label">
         <p-autoComplete id='search' [(ngModel)]="prod" [suggestions]="filteredProds" (completeMethod)="filterProds($event)"
-                        [dropdown]="true" [style]="{'width':'80%'}" [inputStyle]="{'width':'80%'}" class="p-autocomplete">
-                        
+                        [dropdown]="true" [style]="{'width':'95%'}" [inputStyle]="{'width':'95%'}">
+
           <ng-template let-prod pTemplate="item">
             <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
               <img src="assets/images/pic02.jpg" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
@@ -38,8 +38,9 @@
             </div>
           </ng-template>
         </p-autoComplete>
-        <label for="search">Ricerca Prodotto</label>  
+        <label for="search">Ricerca Prodotto</label>
       </span>
+
     </p-card>
   </div>
 
