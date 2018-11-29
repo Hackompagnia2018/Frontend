@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {SelectItemGroup} from 'primeng/api';
+import {MessageService, SelectItemGroup} from 'primeng/api';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import {formArrayNameProvider} from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
@@ -16,7 +16,7 @@ export class UserNewSaleComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private messageService: MessageService) {
     this.form = this.fb.group({
       title: new FormControl({value: '', disabled: false}, [Validators.required]),
       prod: new FormControl({value: '', disabled: false}, [Validators.required]),
@@ -248,6 +248,10 @@ export class UserNewSaleComponent implements OnInit {
   // Metodo per salvare i dati
   saveSale() {
     console.log(this.form.value);
+    this.messageService.add({severity: 'success', summary: 'Successfully', detail: 'Add Sale Successful'});
+    this.form.reset();
+    this.close.emit();
+    this.display = false;
   }
   // Metodo per resettare i dati
   resetSale() {
