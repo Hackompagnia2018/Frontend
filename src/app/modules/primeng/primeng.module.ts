@@ -1,10 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
-  AutoCompleteModule, ButtonModule, CardModule, DropdownModule, FieldsetModule, InputTextModule, MessageModule, ProgressSpinnerModule,
-  SidebarModule, SplitButtonModule, TabViewModule, ToggleButtonModule, ToolbarModule
-} from 'primeng/primeng';
-import {
   AutoCompleteModule,
   ButtonModule,
   CardModule, DropdownModule,
@@ -12,7 +8,7 @@ import {
   InputTextModule,
   MegaMenuModule,
   MessageModule, PanelMenuModule,
-  ProgressSpinnerModule, RadioButtonModule,
+  ProgressSpinnerModule,
   SidebarModule, SlideMenuModule,
   SplitButtonModule,
   TabViewModule,

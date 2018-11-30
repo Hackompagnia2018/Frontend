@@ -15,9 +15,6 @@ export class UsersHomeComponent implements OnInit {
   profilePics;
   searchSide = false;
   name: string;
-  prods: string[] = ['Olio Esausto', 'Liquame', 'Liquiletame', 'Stallatico', 'Scarto Organico Generico', 'Altro'];
-  filteredProds: any[];
-  prod: string;
   displayNewSale = false;
   items: MenuItem[];
   search;
@@ -117,6 +114,5 @@ export class UsersHomeComponent implements OnInit {
   test(search) {
     this.search = search;
     this.searchSide = true;
-    console.log(search);
   }
 }
