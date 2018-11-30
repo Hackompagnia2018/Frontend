@@ -11,7 +11,7 @@ export class UsersSearchComponent implements OnInit {
 
   form: FormGroup;
   groupedCity: any;
-  prods: string[] = ['Waste Oils', 'Slurry', 'Manure', 'vegetable waste', 'Timber', 'Mowings'];
+  prods: string[] = ['Waste Oils', 'Slurry', 'Manure', 'Vegetable waste', 'Timber', 'Mowings'];
   regions: SelectItem[];
   provinces: SelectItem[];
   cities: SelectItem[];

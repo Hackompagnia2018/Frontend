@@ -1,64 +1,16 @@
 <div class="page-wrap">
-  <div style="position: fixed; top: 0; left: 0; z-index: 2">
-    <p-toolbar [style]="{'background-color' : 'transparent', 'border-color': 'transparent', 'border-radius': '0 0 0 0'}">
-      <span class="MenuBar">
-        <button pButton class="options" icon="pi pi-home" label="Home" (click)="scrollToElement(main)"></button>
-        <button pButton class="options" type="button" icon="pi pi-user" label="About us" (click)="scrollToElement(galleries)"></button>
-        <button pButton class="options" type="button" icon="pi pi-star-o" label="Services" (click)="scrollToElement(contact)"></button>
-      </span>
-    </p-toolbar>
-  </div>
   <!-- Main -->
   <section id="main" #main style="z-index: 1;">
     <!-- Banner -->
     <section id="banner">
       <!-- Nav -->
       <div class="inner">
-        <img src="../../../../assets/images/logo%205.png"/>
-        <p>Rifiuto Eco Sostenibile</p>
+        <img src="../../../../assets/images/Logo_round.png" style="height: 390px; width: 740px"/><br>
+        <img src="../../../../assets/images/Logo_text.png" style="height: 400px; width: 900px"/><br><br><br><br>
         <ul class="actions">
           <li><button pButton label="Autenticazione" icon="pi pi-unlock" class="logBtns" (click)="onLogin()"></button></li>
+          <li><button pButton label="Ricerca Veloce" icon="pi pi-search" class="logBtns"></button></li>
         </ul>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="galleries" #galleries>
-
-      <!-- Photo Galleries -->
-      <div class="gallery">
-        <header class="special">
-          <h2>What's New</h2>
-        </header>
-        <div class="content">
-          <div class="media">
-            <a href="../../../../assets/images/fulls/01.jpg"><img src="../../../../assets/images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-          <div class="media">
-            <a href="../../../../assets/images/fulls/05.jpg"><img src="../../../../assets/images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-          <div class="media">
-            <a href="../../../../assets/images/fulls/09.jpg"><img src="../../../../assets/images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-          <div class="media">
-            <a href="../../../../assets/images/fulls/02.jpg"><img src="../../../../assets/images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-          <div class="media">
-            <a href="../../../../assets/images/fulls/06.jpg"><img src="../../../../assets/images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-          <div class="media">
-            <a href="../../../../assets/images/fulls/10.jpg"><img src="../../../../assets/images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-          <div class="media">
-            <a href="../../../../assets/images/fulls/03.jpg"><img src="../../../../assets/images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-          <div class="media">
-            <a href="../../../../assets/images/fulls/07.jpg"><img src="../../../../assets/images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
-          </div>
-        </div>
-        <footer>
-          <button pButton label="Big Button" class="Bigbtn"></button>
-        </footer>
       </div>
     </section>
 
@@ -66,10 +18,10 @@
     <section id="contact" #contact>
       <!-- Social -->
       <div class="social column">
-        <h3>About Me</h3>
+        <h3>About Us</h3>
         <p>Mus sed interdum nunc dictum rutrum scelerisque erat a parturient condimentum potenti dapibus vestibulum condimentum per tristique porta. Torquent a ut consectetur a vel ullamcorper a commodo a mattis ipsum class quam sed eros vestibulum quisque a eu nulla scelerisque a elementum vestibulum.</p>
         <p>Aliquet dolor ultricies sem rhoncus dolor ullamcorper pharetra dis condimentum ullamcorper rutrum vehicula id nisi vel aptent orci litora hendrerit penatibus erat ad sit. In a semper velit eleifend a viverra adipiscing a phasellus urna praesent parturient integer ultrices montes parturient suscipit posuere quis aenean. Parturient euismod ultricies commodo arcu elementum suspendisse id dictumst at ut vestibulum conubia quisque a himenaeos dictum proin dis purus integer mollis parturient eros scelerisque dis libero parturient magnis.</p>
-        <h3>Follow Me</h3>
+        <h3>Follow Us</h3>
         <ul class="icons">
           <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
           <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -79,7 +31,7 @@
 
       <!-- Form -->
       <div class="column">
-        <h3>Get in Touch</h3>
+        <h3>Contact</h3>
         <form action="#">
           <div class="field half first">
             <label for="name">Name</label>
@@ -104,7 +56,7 @@
     <!-- Footer -->
     <footer id="footer">
       <div class="copyright">
-        &copy; Hack UNIVPM 2018
+        &copy; Hack UNIVPM 2018 RES - Rifiuto Eco Sostenibile
       </div>
     </footer>
   </section>

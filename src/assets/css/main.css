@@ -1458,7 +1458,7 @@
 		-ms-justify-content: center;
 		justify-content: center;
 		min-height: 75vh;
-		height: 75vh;
+		height: 100vh;
 		position: relative;
 		background: #000;
 		background-image: url(../../assets/images/banner.jpg);

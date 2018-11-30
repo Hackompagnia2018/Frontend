@@ -3,6 +3,7 @@ import {ConfirmationService, MenuItem, MessageService} from 'primeng/api';
 import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {UsersService} from '../../../services/users/users.service';
+import {Sale} from '../../../classes/sale';
 
 @Component({
   selector: 'app-users-home',
@@ -18,6 +19,9 @@ export class UsersHomeComponent implements OnInit {
   displayNewSale = false;
   items: MenuItem[];
   search;
+  availProds: Sale[];
+  sourceProds: Sale[];
+  selectedProds: Sale[];
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
 
@@ -88,6 +92,7 @@ export class UsersHomeComponent implements OnInit {
         ]
       }
     ];
+    this.selectedProds = [];
     this.displayNewSale = false;
     this.profilePics = this.authService.tokenDecode()['picture'];
     if (!this.authService.tokenDecode()['email_verified']) {
@@ -111,8 +116,9 @@ export class UsersHomeComponent implements OnInit {
   getName(): string {
     return this.authService.tokenDecode()['name'];
   }
-  test(search) {
+  openSearchResult(search) {
     this.search = search;
     this.searchSide = true;
+    this.usersService.getSaleAvailable(search.selectedCity, search.Product).subscribe((res: Sale[]) => {this.availProds = res; console.log(this.availProds); }, error => console.log(error));
   }
 }
