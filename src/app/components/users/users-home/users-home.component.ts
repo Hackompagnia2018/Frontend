@@ -13,10 +13,9 @@ import {UsersService} from '../../../services/users/users.service';
 export class UsersHomeComponent implements OnInit {
   displaySidebarToggle = true;
   profilePics;
+  searchSide = false;
   name: string;
-  prods: string[] = ['Olio Esausto', 'Liquame', 'Liquiletame', 'Stallatico', 'Scarto Organico Generico', 'Altro'];
-  filteredProds: any[];
-  prod: string;
+  search;
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
 
@@ -26,15 +25,6 @@ export class UsersHomeComponent implements OnInit {
       this.router.navigate(['UserNoVerify']);
     }
     this.name = this.getName();
-  }
-  filterProds(event) {
-    this.filteredProds = [];
-    for (let i = 0; i < this.prods.length; i++) {
-      const prod = this.prods[i];
-      if (prod.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
-        this.filteredProds.push(prod);
-      }
-    }
   }
   logout() {
     this.confirmationService.confirm({
@@ -51,5 +41,10 @@ export class UsersHomeComponent implements OnInit {
   }
   getName(): string {
     return this.authService.tokenDecode()['name'];
+  }
+  test(search) {
+    this.search = search;
+    this.searchSide = true;
+    console.log(search);
   }
 }

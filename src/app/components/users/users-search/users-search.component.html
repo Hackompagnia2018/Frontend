@@ -1,0 +1,31 @@
+<p-card styleClass="ui-card-shadow" class="user-card" [style]="{'margin':'10px 10px 10px 10px'}">
+  <form [formGroup]="form">
+    <div class="search-input-div" align="left">
+        <span class="ui-float-label">
+            <p-autoComplete id='search' formControlName="Product" [(ngModel)]="prod" [suggestions]="filteredProds" (completeMethod)="filterProds($event)"
+                            [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}">
+              <ng-template let-prod pTemplate="item">
+                <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+                  <img src="assets/images/pic02.jpg" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
+                  <div style="font-size:18px;float:right;margin:10px 10px 0 0">{{prod}}</div>
+                </div>
+              </ng-template>
+            </p-autoComplete>
+          <label id="autocomp-label" for="search">Search</label>
+        </span>
+    </div>
+    <div align="left" class="search-input-div">
+      <p-dropdown [options]="groupedCity" [style]="{'width':'150px'}" placeholder="Select a City" [group]="true" formControlName="selectedCity" style="margin-bottom: 10px">
+        <ng-template let-group pTemplate="group">
+          <span style="margin-left:.25em">{{group.label}}</span>
+        </ng-template>
+      </p-dropdown>
+    </div>
+    <div align="right" class="search-button-div">
+      <button pButton icon="fa fa-check" label="Search" style="margin-right: 5px" [disabled]="form.invalid" (click)="search(form.value)"></button>
+      <button pButton icon="fa fa-times" label="Reset" (click)="reset()" class="ui-button-secondary"></button>
+    </div>
+  </form>
+</p-card>
+
+
