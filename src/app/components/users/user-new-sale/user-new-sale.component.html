@@ -9,9 +9,14 @@
           <label for="float-input">Title</label>
         </span>
 
-        <span class="ui-float-label" style="margin-bottom: 10px">
+        <span class="ui-float-label" style="margin-bottom: 16px">
           <input formControlName="prod" type="text" size="30" pInputText>
           <label for="float-input">Product</label>
+        </span>
+
+        <span class="ui-float-label" style="margin-bottom: 16px">
+          <input formControlName="quantity" type="text" size="30" pInputText>
+          <label for="float-input">Quantity</label>
         </span>
 
               <p-dropdown [options]="groupedCity" [style]="{'width':'150px'}" placeholder="Select a City" [group]="true" formControlName="selectedCity" style="margin-bottom: 10px">
@@ -31,6 +36,13 @@
           <input formControlName="contact" type="text" size="30" pInputText>
           <label for="float-input">Contact</label>
         </span>
+
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">€</span>
+            <input formControlName="price" type="text" pInputText placeholder="Price">
+            <span class="ui-inputgroup-addon">.00</span>
+          </div>
+        <br>
 
       </div>
     </form>

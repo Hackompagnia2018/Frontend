@@ -28,7 +28,9 @@ export class UserNewSaleComponent implements OnInit {
       prod: new FormControl({value: '', disabled: false}, [Validators.required]),
       address: new FormControl({value: '', disabled: false}, [Validators.required]),
       selectedCity: new FormControl({value: '', disabled: false}, [Validators.required]),
-      contact: new FormControl({value: '', disabled: false}, [Validators.required])
+      contact: new FormControl({value: '', disabled: false}, [Validators.required]),
+      price: new FormControl({value: '', disabled: false}, [Validators.required]),
+      quantity: new FormControl({value: '', disabled: false}, [Validators.required])
     });
   }
 
@@ -269,6 +271,8 @@ export class UserNewSaleComponent implements OnInit {
     this.sale['region'] = this.region;
     this.sale['province'] = this.city;
     this.sale['send_type'] = this.sendType;
+    this.sale['quantity'] = this.form.value['quantity'];
+    this.sale['price'] = this.form.value['price'];
     console.log(this.sale);
     this.userService.postNewSale(this.sale).subscribe(res => console.log(res), error => console.log(error));
     this.userService.postSuggestion(this.sale).subscribe(res => console.log(res), error => console.log(error));

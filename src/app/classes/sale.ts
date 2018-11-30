@@ -10,5 +10,7 @@ export class Sale {
   public title: string;
   public contact: string;
   public name_prod: string;
+  public quantity: string;
+  public price: string;
   constructor() {}
 }
