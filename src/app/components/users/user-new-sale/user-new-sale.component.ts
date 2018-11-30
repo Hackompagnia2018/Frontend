@@ -1,6 +1,9 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {MessageService, SelectItemGroup} from 'primeng/api';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {Sale} from '../../../classes/sale';
+import {UsersService} from '../../../services/users/users.service';
+
 
 @Component({
   selector: 'app-user-new-sale',
@@ -14,14 +17,18 @@ export class UserNewSaleComponent implements OnInit {
   form: FormGroup;
   uploadedFiles: any[] = [];
   city = null;
-  province = null;
+  region = null;
+  checked = true;
+  sendType = null;
+  sale = new Sale();
 
-  constructor(private fb: FormBuilder, private messageService: MessageService) {
+  constructor(private fb: FormBuilder, private messageService: MessageService, private userService: UsersService) {
     this.form = this.fb.group({
       title: new FormControl({value: '', disabled: false}, [Validators.required]),
       prod: new FormControl({value: '', disabled: false}, [Validators.required]),
       address: new FormControl({value: '', disabled: false}, [Validators.required]),
-      selectedCity: new FormControl({value: '', disabled: false}, [Validators.required])
+      selectedCity: new FormControl({value: '', disabled: false}, [Validators.required]),
+      contact: new FormControl({value: '', disabled: false}, [Validators.required])
     });
   }
 
@@ -247,12 +254,25 @@ export class UserNewSaleComponent implements OnInit {
 
   // Metodo per salvare i dati
   saveSale() {
-    console.log(this.form.value);
-    let provAndCity = this.form.value['selectedCity'].split(".");
-    this.province = provAndCity[0];
+    const provAndCity = this.form.value['selectedCity'].split('.');
+    this.region = provAndCity[0];
     this.city = provAndCity[1];
-    console.log(this.province);
-    console.log(this.city);
+    if (this.checked) {
+      this.sendType = 'seller';
+    } else {
+      this.sendType = 'buyer';
+    }
+    this.sale['title'] = this.form.value['title'];
+    this.sale['address'] = this.form.value['address'];
+    this.sale['contact'] = this.form.value['contact'];
+    this.sale['prod'] = this.form.value['prod'];
+    this.sale['region'] = this.region;
+    this.sale['province'] = this.city;
+    this.sale['send_type'] = this.sendType;
+    console.log(this.sale);
+    this.userService.postNewSale(this.sale).subscribe(res => console.log(res), error => console.log(error));
+    this.userService.postSuggestion(this.sale).subscribe(res => console.log(res), error => console.log(error));
+
     this.messageService.add({severity: 'success', summary: 'Successfully', detail: 'Add Sale Successful'});
     this.form.reset();
     this.close.emit();
@@ -264,7 +284,7 @@ export class UserNewSaleComponent implements OnInit {
   }
   // Add Image
   onUpload(event) {
-    for (let file of event.files) {
+    for (const file of event.files) {
       this.uploadedFiles.push(file);
     }
 

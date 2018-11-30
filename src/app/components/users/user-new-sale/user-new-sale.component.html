@@ -22,12 +22,22 @@
               <br>
               <br>
 
-        <span class="ui-float-label" style="margin-bottom: 10px">
+        <span class="ui-float-label" style="margin-bottom: 16px">
           <input formControlName="address" type="text" size="30" pInputText>
           <label for="float-input">Address</label>
         </span>
+
+        <span class="ui-float-label" style="margin-bottom: 16px">
+          <input formControlName="contact" type="text" size="30" pInputText>
+          <label for="float-input">Contact</label>
+        </span>
+
       </div>
     </form>
+
+    <p-toggleButton [(ngModel)]="checked" onLabel="Seller" offLabel="Buyer" onIcon="pi pi-money-bill" offIcon="pi pi-shopping-cart" [style]="{'width':'150px'}"></p-toggleButton>
+
+    <br><br>
 
     <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
     <br>
