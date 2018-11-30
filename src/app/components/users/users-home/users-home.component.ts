@@ -3,6 +3,7 @@ import {ConfirmationService, MenuItem, MessageService} from 'primeng/api';
 import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {UsersService} from '../../../services/users/users.service';
+import {Sale} from '../../../classes/sale';
 
 @Component({
   selector: 'app-users-home',
@@ -18,76 +19,14 @@ export class UsersHomeComponent implements OnInit {
   displayNewSale = false;
   items: MenuItem[];
   search;
+  availProds: Sale[];
+  sourceProds: Sale[];
+  selectedProds: Sale[];
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
 
   ngOnInit() {
-    this.items = [
-      {
-        label: 'Sale',
-        icon: 'pi pi-pw pi-pencil',
-        items: [
-          {label: 'New Sale', icon: 'pi pi-fw pi-plus', command: (event) => { this.displayNewSale = true; }},
-          {label: 'Edit Sale', icon: 'pi pi-fw pi-refresh'}
-        ]
-      },
-      {
-        label: 'Buy',
-        icon: 'fa fa-fw fa-credit-card',
-        items: [
-          {label: 'New Buy', icon: 'pi pi-fw pi-plus'},
-          {label: 'Edit Buy', icon: 'pi pi-fw pi-refresh'}
-        ]
-      },
-      {
-        label: 'Help',
-        icon: 'pi pi-fw pi-question',
-        items: [
-          {
-            label: 'Contents',
-            icon: 'pi pi-pi pi-bars'
-          },
-          {
-            label: 'Search',
-            icon: 'pi pi-pi pi-search',
-            items: [
-              {
-                label: 'Text',
-                items: [
-                  {
-                    label: 'Workspace'
-                  }
-                ]
-              },
-              {
-                label: 'User',
-                icon: 'pi pi-fw pi-file',
-              }
-            ]}
-        ]
-      },
-      {
-        label: 'Actions',
-        icon: 'pi pi-fw pi-cog',
-        items: [
-          {
-            label: 'Edit',
-            icon: 'pi pi-fw pi-pencil',
-            items: [
-              {label: 'Save', icon: 'pi pi-fw pi-save'},
-              {label: 'Update', icon: 'pi pi-fw pi-save'},
-            ]
-          },
-          {
-            label: 'Other',
-            icon: 'pi pi-fw pi-tags',
-            items: [
-              {label: 'Delete', icon: 'pi pi-fw pi-minus'}
-            ]
-          }
-        ]
-      }
-    ];
+    this.selectedProds = [];
     this.displayNewSale = false;
     this.profilePics = this.authService.tokenDecode()['picture'];
     if (!this.authService.tokenDecode()['email_verified']) {
@@ -111,8 +50,9 @@ export class UsersHomeComponent implements OnInit {
   getName(): string {
     return this.authService.tokenDecode()['name'];
   }
-  test(search) {
+  openSearchResult(search) {
     this.search = search;
     this.searchSide = true;
+    this.usersService.getSaleAvailable(search.selectedCity, search.Product).subscribe((res: Sale[]) => {this.availProds = res; console.log(this.availProds); }, error => console.log(error));
   }
 }

@@ -7,7 +7,7 @@ import {
   FieldsetModule, FileUploadModule,
   InputTextModule,
   MegaMenuModule,
-  MessageModule, PanelMenuModule,
+  MessageModule, PanelMenuModule, PickListModule,
   ProgressSpinnerModule,
   SidebarModule, SlideMenuModule,
   SplitButtonModule,
@@ -18,6 +18,7 @@ import {
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 import {DialogModule} from 'primeng/dialog';
+import {GMapModule} from 'primeng/gmap';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import {DialogModule} from 'primeng/dialog';
     FileUploadModule,
     ToggleButtonModule,
     PanelMenuModule,
-    SlideMenuModule
+    SlideMenuModule,
+    PickListModule
   ],
   exports: [
     ButtonModule,
@@ -68,7 +70,8 @@ import {DialogModule} from 'primeng/dialog';
     FileUploadModule,
     ToggleButtonModule,
     PanelMenuModule,
-    SlideMenuModule
+    SlideMenuModule,
+    PickListModule
   ],
   declarations: []
 })
