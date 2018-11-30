@@ -91,6 +91,6 @@
 <p-toast [style]="{marginTop: '30px'}"></p-toast>
 <p-confirmDialog></p-confirmDialog>
 <p-sidebar [visible]="searchSide" [fullScreen]="true" (onHide)="searchSide = false">
-  <h1>Products for '{{search?.Product}}' in '{{search?.City}}'</h1>
+  <h1>Products for '{{search?.Product}}' in '{{search?.selectedCity}}'</h1>
 </p-sidebar>
 <!---->
