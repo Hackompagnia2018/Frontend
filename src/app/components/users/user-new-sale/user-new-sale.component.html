@@ -1,0 +1,50 @@
+<p-sidebar [(visible)]="display" position="right" [baseZIndex]="10000" [dismissible]="false" [showCloseIcon]="true" (onHide)="closeAddSale()">
+  <div>
+    <h1 style="font-weight:normal">Add Sale </h1>
+
+    <form [formGroup]="form">
+      <div class="form-group">
+        <span class="ui-float-label" style="margin-bottom: 16px">
+          <input formControlName="title" id="float-input" type="text" size="30" pInputText>
+          <label for="float-input">Title</label>
+        </span>
+
+        <span class="ui-float-label" style="margin-bottom: 10px">
+          <input formControlName="prod" type="text" size="30" pInputText>
+          <label for="float-input">Product</label>
+        </span>
+
+              <p-dropdown [options]="groupedCity" [style]="{'width':'150px'}" placeholder="Select a City" [group]="true" formControlName="selectedCity" style="margin-bottom: 10px">
+                <ng-template let-group pTemplate="group">
+                  <span style="margin-left:.25em">{{group.label}}</span>
+                </ng-template>
+              </p-dropdown>
+              <br>
+              <br>
+
+        <span class="ui-float-label" style="margin-bottom: 16px">
+          <input formControlName="address" type="text" size="30" pInputText>
+          <label for="float-input">Address</label>
+        </span>
+
+        <span class="ui-float-label" style="margin-bottom: 16px">
+          <input formControlName="contact" type="text" size="30" pInputText>
+          <label for="float-input">Contact</label>
+        </span>
+
+      </div>
+    </form>
+
+    <p-toggleButton [(ngModel)]="checked" onLabel="Seller" offLabel="Buyer" onIcon="pi pi-money-bill" offIcon="pi pi-shopping-cart" [style]="{'width':'150px'}"></p-toggleButton>
+
+    <br><br>
+
+    <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" class="ui-button-success" chooseLabel="Image"  (onUpload)="onBasicUpload($event)"></p-fileUpload>
+    <br>
+    <br>
+
+    <button pButton type="button" (click)="saveSale()" label="Insert" icon="pi pi-check" style="margin-right: 5px" [disabled]="!form.valid"></button>
+    <button pButton type="button" (click)="resetSale()" label="Reset" class="ui-button-secondary" icon="pi pi-times" style="margin-right: 5px"></button>
+  </div>
+
+</p-sidebar>

@@ -24,6 +24,7 @@ import { SendMailComponent } from './components/_plus/send-mail/send-mail.compon
 import {MessageService} from 'primeng/api';
 import {UsersService} from './services/users/users.service';
 import {MaterialModule} from './modules/material/material.module';
+import { UserNewSaleComponent } from './components/users/user-new-sale/user-new-sale.component';
 import { UsersSearchComponent } from './components/users/users-search/users-search.component';
 
 @NgModule({
@@ -36,6 +37,8 @@ import { UsersSearchComponent } from './components/users/users-search/users-sear
     StaffHomeComponent,
     AccessDeniedComponent,
     AdminHomeComponent,
+    SendMailComponent,
+    UserNewSaleComponent,
     SendMailComponent,
     UsersSearchComponent
   ],

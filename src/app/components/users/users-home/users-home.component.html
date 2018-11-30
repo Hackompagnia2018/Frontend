@@ -3,11 +3,16 @@
 </p-sidebar>-->
 <mat-drawer-container class="container">
 
-  <mat-drawer #drawer class="sidenav" mode="side">
+  <mat-drawer #drawer [opened]="true" class="sidenav" mode="side">
     <div id="drawer-profile" align="center">
       <img class="profile-icon-sidebar" [src]="profilePics" height="90px">
       <h4>{{name}}</h4>
     </div>
+    <br>
+    <br>
+
+    <p-slideMenu [model]="items" [style]="{'width':'100%', 'border-color':'transparent'}" [viewportHeight]="200" [menuWidth]="250"></p-slideMenu>
+
   </mat-drawer>
 
   <div id="search-autocomplete">
@@ -15,13 +20,15 @@
 
       <div class="ui-toolbar-group-left">
         <img *ngIf="displaySidebarToggle" class="profile-icon" [src]="profilePics"
-            (click)="drawer.toggle(); displaySidebarToggle = false" height="30px">
-        <button id="profile-button" *ngIf="!displaySidebarToggle" pButton icon="fa fa-times" class="ui-button-secondary"
-                (click)="drawer.toggle(); displaySidebarToggle = true"></button>
+            (click)="drawer.toggle(); displaySidebarToggle = !displaySidebarToggle" height="30px">
+        <button id="profile-button" *ngIf="!displaySidebarToggle" pButton icon="fa fa-2x fa-angle-left" class="ui-button-secondary"
+                (click)="drawer.toggle(); displaySidebarToggle = !displaySidebarToggle" ></button>
+
       </div>
 
+
       <div class="ui-toolbar-group-right">
-        <button pButton type="button" label="Logout" class="ui-button-rounded ui-button-danger" icon="pi pi-power-off" (click)="logout()"></button>
+         <button pButton type="button" label="Logout" class="ui-button-rounded ui-button-danger" icon="pi pi-power-off" (click)="logout()"></button>
       </div>
 
     </p-toolbar>
@@ -90,7 +97,5 @@
 <!-- Overlay Components -->
 <p-toast [style]="{marginTop: '30px'}"></p-toast>
 <p-confirmDialog></p-confirmDialog>
-<p-sidebar [visible]="searchSide" [fullScreen]="true" (onHide)="searchSide = false">
-  <h1>Products for '{{search?.Product}}' in '{{search?.selectedCity}}'</h1>
-</p-sidebar>
+<app-user-new-sale [display]="displayNewSale" (close)="displayNewSale=false"></app-user-new-sale>
 <!---->

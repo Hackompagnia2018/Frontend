@@ -4,6 +4,21 @@ import {
   AutoCompleteModule, ButtonModule, CardModule, DropdownModule, FieldsetModule, InputTextModule, MessageModule, ProgressSpinnerModule,
   SidebarModule, SplitButtonModule, TabViewModule, ToggleButtonModule, ToolbarModule
 } from 'primeng/primeng';
+import {
+  AutoCompleteModule,
+  ButtonModule,
+  CardModule, DropdownModule,
+  FieldsetModule, FileUploadModule,
+  InputTextModule,
+  MegaMenuModule,
+  MessageModule, PanelMenuModule,
+  ProgressSpinnerModule, RadioButtonModule,
+  SidebarModule, SlideMenuModule,
+  SplitButtonModule,
+  TabViewModule,
+  ToggleButtonModule,
+  ToolbarModule
+} from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 import {DialogModule} from 'primeng/dialog';
@@ -25,7 +40,14 @@ import {DialogModule} from 'primeng/dialog';
     DialogModule,
     AutoCompleteModule,
     FieldsetModule,
-    DropdownModule
+    DropdownModule,
+    FieldsetModule,
+    MegaMenuModule,
+    DropdownModule,
+    FileUploadModule,
+    ToggleButtonModule,
+    PanelMenuModule,
+    SlideMenuModule
   ],
   exports: [
     ButtonModule,
@@ -43,7 +65,14 @@ import {DialogModule} from 'primeng/dialog';
     DialogModule,
     AutoCompleteModule,
     FieldsetModule,
-    DropdownModule
+    DropdownModule,
+    FieldsetModule,
+    MegaMenuModule,
+    DropdownModule,
+    FileUploadModule,
+    ToggleButtonModule,
+    PanelMenuModule,
+    SlideMenuModule
   ],
   declarations: []
 })
