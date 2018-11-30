@@ -9,7 +9,10 @@ export class UsersService {
  postNewSale(newSale) {
     return this.http.post(this.url.devUrl + '/user/post/newSale', newSale);
  }
- postSuggestion (cell) {
+ postSuggestion(cell) {
     return this.http.post(this.url.devUrl + '/user/post/suggestions', cell);
+ }
+ getSaleAvailable(prov, product) {
+    return this.http.get(this.url.devUrl + '/user/get/sale/' + prov + '/' + product);
  }
 }
