@@ -1,7 +1,3 @@
-body {
-  background-color: #fafafa !important;
-}
-
 .profile-icon {
   border-radius: 20px 20px 20px 20px;
   cursor: pointer;
@@ -23,23 +19,3 @@ body {
 #profile-button {
   border-radius: 20px 20px 20px 20px;
 }
-
-#search-autocomplete {
-  padding-left: 10px;
-}
-
-.ui-card {
-  margin : 20px 20px 20px 20px;
-  height: 250px;
-}
-
-.ui-autocomplete {
-}
-
-.p-autocomplete {
-  width: 80%;
-  top: 20%;
-  position: relative;
-  text-align: center;
-}
-
