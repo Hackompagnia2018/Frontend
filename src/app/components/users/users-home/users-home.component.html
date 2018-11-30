@@ -46,10 +46,16 @@
             Tabella Vendite
           </h5>
         </p-header>
-        Body Content
-        <p-footer>
-          Footer content here
-        </p-footer>
+       <p-table>
+         <ng-template pTemplate="header">
+         <tr>
+           <th>Prodotto</th>
+           <th>Data</th>
+           <th>Luogo</th>
+           <th>Prezzo</th>
+         </tr>
+         </ng-template>
+       </p-table>
       </p-card>
     </div>
     <div class="ui-g-6">
@@ -59,10 +65,7 @@
             Grafico Vendite
           </h5>
         </p-header>
-        Body Content
-        <p-footer>
-          Footer content here
-        </p-footer>
+        <p-chart type="polarArea" [data]="dataVendite"></p-chart>
       </p-card>
     </div>
     <div class="ui-g-6">
@@ -72,10 +75,16 @@
             Tabella Acquisti
           </h5>
         </p-header>
-        Body Content
-        <p-footer>
-          Footer content here
-        </p-footer>
+        <p-table>
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Prodotto</th>
+              <th>Data</th>
+              <th>Luogo</th>
+              <th>Prezzo</th>
+            </tr>
+          </ng-template>
+        </p-table>
       </p-card>
     </div>
     <div class="ui-g-6">
@@ -85,10 +94,7 @@
             Grafico Acquisti
           </h5>
         </p-header>
-        Body Content
-        <p-footer>
-          Footer content here
-        </p-footer>
+        <p-chart type="radar" [data]="dataAcquisti"></p-chart>
       </p-card>
     </div>
   </div>

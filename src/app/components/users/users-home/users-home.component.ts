@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {ConfirmationService, MenuItem, MessageService} from 'primeng/api';
+import {ConfirmationService, MenuItem, MessageService, TreeNode} from 'primeng/api';
 import {AuthService} from '../../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {UsersService} from '../../../services/users/users.service';
@@ -22,10 +22,65 @@ export class UsersHomeComponent implements OnInit {
   availProds: Sale[];
   sourceProds: Sale[];
   selectedProds: Sale[];
+  dataVendite: any;
+  dataAcquisti: any;
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private confirmationService: ConfirmationService, private messageService: MessageService) {
   }
 
   ngOnInit() {
+    this.dataVendite = {
+      datasets: [{
+        data: [
+          11,
+          19,
+          7,
+          3,
+          20,
+          9
+        ],
+        backgroundColor: [
+          '#FF6384',
+          '#4BC0C0',
+          '#FFCE56',
+          '#E7E9ED',
+          '#36A2EB'
+        ],
+        label: 'My dataset'
+      }],
+      labels: [
+        'Waste Oils',
+        'Timber',
+        'Slurry',
+        'Manure',
+        'Vegetable waste',
+        'Mowings'
+      ]
+    };
+    this.dataAcquisti = {
+      labels: ['Waste Oils', 'Slurry', 'Manure', 'Vegetable waste', 'Timber', 'Mowings'],
+      datasets: [
+        {
+          label: 'Primo Anno',
+          backgroundColor: 'rgba(179,181,198,0.2)',
+          borderColor: 'rgba(179,181,198,1)',
+          pointBackgroundColor: 'rgba(179,181,198,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(179,181,198,1)',
+          data: [65, 59, 90, 81, 56, 55]
+        },
+        {
+          label: 'Secondo Anno',
+          backgroundColor: 'rgba(255,99,132,0.2)',
+          borderColor: 'rgba(255,99,132,1)',
+          pointBackgroundColor: 'rgba(255,99,132,1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(255,99,132,1)',
+          data: [28, 48, 40, 19, 96, 27]
+        }
+      ]
+    };
     this.items = [
       {
         label: 'Sale',

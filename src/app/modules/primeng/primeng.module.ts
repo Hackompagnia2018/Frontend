@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {
   AutoCompleteModule,
   ButtonModule,
-  CardModule, DropdownModule,
+  CardModule, ChartModule, DropdownModule,
   FieldsetModule, FileUploadModule,
   InputTextModule,
   MegaMenuModule,
@@ -13,7 +13,7 @@ import {
   SplitButtonModule,
   TabViewModule,
   ToggleButtonModule,
-  ToolbarModule
+  ToolbarModule, TreeTableModule
 } from 'primeng/primeng';
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
@@ -45,7 +45,9 @@ import {GMapModule} from 'primeng/gmap';
     ToggleButtonModule,
     PanelMenuModule,
     SlideMenuModule,
-    PickListModule
+    PickListModule,
+    ChartModule,
+    TreeTableModule
   ],
   exports: [
     ButtonModule,
@@ -71,7 +73,9 @@ import {GMapModule} from 'primeng/gmap';
     ToggleButtonModule,
     PanelMenuModule,
     SlideMenuModule,
-    PickListModule
+    PickListModule,
+    ChartModule,
+    TreeTableModule
   ],
   declarations: []
 })
