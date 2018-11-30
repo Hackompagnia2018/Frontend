@@ -7,9 +7,9 @@ import {
   FieldsetModule, FileUploadModule,
   InputTextModule,
   MegaMenuModule,
-  MessageModule,
+  MessageModule, PanelMenuModule,
   ProgressSpinnerModule, RadioButtonModule,
-  SidebarModule,
+  SidebarModule, SlideMenuModule,
   SplitButtonModule,
   TabViewModule,
   ToggleButtonModule,
@@ -39,7 +39,9 @@ import {DialogModule} from 'primeng/dialog';
     MegaMenuModule,
     DropdownModule,
     FileUploadModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    PanelMenuModule,
+    SlideMenuModule
   ],
   exports: [
     ButtonModule,
@@ -60,7 +62,9 @@ import {DialogModule} from 'primeng/dialog';
     MegaMenuModule,
     DropdownModule,
     FileUploadModule,
-    ToggleButtonModule
+    ToggleButtonModule,
+    PanelMenuModule,
+    SlideMenuModule
   ],
   declarations: []
 })

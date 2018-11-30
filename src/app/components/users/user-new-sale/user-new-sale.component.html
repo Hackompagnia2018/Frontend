@@ -1,6 +1,6 @@
-<p-sidebar [(visible)]="display" position="right" [baseZIndex]="10000" [dismissible]="false" [showCloseIcon]="false">
+<p-sidebar [(visible)]="display" position="right" [baseZIndex]="10000" [dismissible]="false" [showCloseIcon]="true" (onHide)="closeAddSale()">
   <div>
-    <h1 style="font-weight:normal">Add Sale <i class="pi pi-pencil"></i></h1>
+    <h1 style="font-weight:normal">Add Sale </h1>
 
     <form [formGroup]="form">
       <div class="form-group">
@@ -39,13 +39,12 @@
 
     <br><br>
 
-    <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
+    <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" class="ui-button-success" chooseLabel="Image"  (onUpload)="onBasicUpload($event)"></p-fileUpload>
     <br>
     <br>
 
-    <button pButton type="button" (click)="saveSale()" label="Save" class="ui-button-success" icon="pi pi-save" style="margin-right: 5px" [disabled]="!form.valid"></button>
-    <button pButton type="button" (click)="resetSale()" label="Reset" class="ui-button-danger" icon="pi pi-replay" style="margin-right: 5px"></button>
-    <button pButton type="button" (click)="closeAddSale()" icon="pi pi-chevron-right" class="ui-button-secondary"></button>
+    <button pButton type="button" (click)="saveSale()" label="Insert" icon="pi pi-check" style="margin-right: 5px" [disabled]="!form.valid"></button>
+    <button pButton type="button" (click)="resetSale()" label="Reset" class="ui-button-secondary" icon="pi pi-times" style="margin-right: 5px"></button>
   </div>
 
 </p-sidebar>

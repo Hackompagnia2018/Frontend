@@ -3,11 +3,16 @@
 </p-sidebar>-->
 <mat-drawer-container class="container">
 
-  <mat-drawer #drawer class="sidenav" mode="side">
+  <mat-drawer #drawer [opened]="true" class="sidenav" mode="side">
     <div id="drawer-profile" align="center">
       <img class="profile-icon-sidebar" [src]="profilePics" height="90px">
       <h4>{{name}}</h4>
     </div>
+    <br>
+    <br>
+
+    <p-slideMenu [model]="items" [style]="{'width':'100%', 'border-color':'transparent'}" [viewportHeight]="200" [menuWidth]="250"></p-slideMenu>
+
   </mat-drawer>
 
   <div id="search-autocomplete">
@@ -15,14 +20,15 @@
 
       <div class="ui-toolbar-group-left">
         <img *ngIf="displaySidebarToggle" class="profile-icon" [src]="profilePics"
-            (click)="drawer.toggle(); displaySidebarToggle = false" height="30px">
-        <button id="profile-button" *ngIf="!displaySidebarToggle" pButton icon="fa fa-times" class="ui-button-secondary"
-                (click)="drawer.toggle(); displaySidebarToggle = true"></button>
-        </div>
+            (click)="drawer.toggle(); displaySidebarToggle = !displaySidebarToggle" height="30px">
+        <button id="profile-button" *ngIf="!displaySidebarToggle" pButton icon="fa fa-2x fa-angle-left" class="ui-button-secondary"
+                (click)="drawer.toggle(); displaySidebarToggle = !displaySidebarToggle" ></button>
+
+      </div>
+
 
       <div class="ui-toolbar-group-right">
-        <button pButton type="button" (click)="displayNewSale = true" class="ui-button-secondary ui-button-rounded" icon="pi pi-plus-circle" label="New Sale" style="margin-right: 5px"></button>
-        <button pButton type="button" label="Logout" class="ui-button-rounded ui-button-danger" icon="pi pi-power-off" (click)="logout()"></button>
+         <button pButton type="button" label="Logout" class="ui-button-rounded ui-button-danger" icon="pi pi-power-off" (click)="logout()"></button>
       </div>
 
     </p-toolbar>
@@ -30,7 +36,7 @@
     <p-card styleClass="ui-card-shadow" class="user-card" >
       <span class="ui-float-label">
         <p-autoComplete id='search' [(ngModel)]="prod" [suggestions]="filteredProds" (completeMethod)="filterProds($event)"
-                        [dropdown]="true" [style]="{'width':'80%'}" [inputStyle]="{'width':'80%'}" class="p-autocomplete">
+                        [dropdown]="true" [style]="{'width':'95%'}" [inputStyle]="{'width':'95%'}" class="p-autocomplete">
                         
           <ng-template let-prod pTemplate="item">
             <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
